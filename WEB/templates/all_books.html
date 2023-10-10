@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Books</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        img {
+            max-height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <h1>All the Books in the Data Base</h1>
+    <table>
+        <tr>
+            <th>Book Photo</th>
+            <th>Book ID</th>
+            <th>Book Name</th>
+            <th>Author Name</th>
+            <th>Copies Available</th>
+        </tr>
+        {% for book in books %}
+        <tr>
+            <td><img src="data:image/jpeg;base64,{{ book.book_photo }}" alt="{{ book.book_name }}"></td>
+            <td>{{ book.book_id }}</td>
+            <td>{{ book.book_name }}</td>
+            <td>{{ book.author_name }}</td>
+            <td>{{ book.copies_available }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

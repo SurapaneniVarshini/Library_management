@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        img {
+            max-height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Availabe Books</h1>
+    <table>
+        <tr>
+            <th>Book Photo</th>
+            <th>Book ID</th>
+            <th>Book Name</th>
+            <th>Author Name</th>
+            <th>Copies Available</th>
+            <th>Relevance</th>
+            <th>Title Similarity</th>
+            <th>Author Similarity</th>
+        </tr>
+        {% for book in books %}
+        <tr>
+            <td><img src="data:image/jpeg;base64,{{ book.book_photo }}" alt="{{ book.book_name }}"></td>
+            <td>{{ book.book_id }}</td>
+            <td>{{ book.book_name }}</td>
+            <td>{{ book.author_name }}</td>
+            <td>{{ book.copies_available }}</td>
+            <td>{{ '%.2f' % (book.relevance * 100) }}%</td>
+            <td>{{ '%.2f' % (book.title_similarity * 100) }}%</td>
+            <td>{{ '%.2f' % (book.author_similarity * 100) }}%</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

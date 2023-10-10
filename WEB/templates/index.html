@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library Management System</title>
+    <style>
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>LIBRARY MANAGEMENT SYSTEM</h1>
+    <h2>Book Search</h2>
+    <form action="/search" method="post">
+        <label for="search_text">Search:</label>
+        <input type="text" id="search_text" name="search_text" required>
+        <label for="search_by">Search By:</label>
+        <select id="search_by" name="search_by">
+            <option value="Title">Title</option>
+            <option value="Author">Author</option>
+            <option value="Publisher">Publisher</option>
+        </select>
+        <input type="submit" value="Search">
+    </form>
+
+    <!-- Add button to get all books -->
+    <form action="/get_all_books" method="get">
+        <input type="submit" value="Get All Books">
+    </form>
+</body>
+</html>
